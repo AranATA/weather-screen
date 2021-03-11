@@ -1,0 +1,34 @@
+:root {
+    --darktext: rgb(119, 12, 101);
+    --darkbg: rgb(119, 12, 101);
+    --lighttext:rgb(235, 229, 232);
+    --lightbg:rgb(255, 236, 246);
+    --buttonborder: rgba(170, 50, 220, .8);
+    --lightborder: rgb(235, 229, 232);
+    --darkborder: rgb(119, 12, 101);
+    /* background-color: var(--lightbg); */
+    font-size: 62.5%;
+}
+
+* {
+    box-sizing: border-box;
+    /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+    margin: 0;
+    padding: 0;
+    color: rgb(41, 40, 40);
+}
+
+header {
+width:100%;
+}
+
+h1 {
+    font-family: 'Merriweather', serif;
+    font-size: 6.25rem;
+    font-weight: 400;
+    color: var(--lighttext);
+    /* text-justify: inter-word; */
+    text-align: center;
+    margin-top: 5rem;
+    margin-bottom: 1.5rem;
+}
