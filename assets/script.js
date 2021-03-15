@@ -181,6 +181,13 @@ function printForecastResults(resultObj) {
     var humidity = document.getElementById("humidity");
     var windSpeed = document.getElementById("wind-speed");
     var uvIndex = document.getElementById("uv-index");
+    var iconCurrent = document.getElementById("active-city-icon");
+
+    var imageIconCurrent = document.createElement("img");
+    var codeIconCurrent = resultObj.current.weather[0].icon;
+    console.log(codeIconCurrent);
+    imageIconCurrent.src = "http://openweathermap.org/img/wn/" + codeIconCurrent + "@2x.png";
+    iconCurrent.appendChild(imageIconCurrent);
 
     temp.textContent = "Temperature: " + resultObj.current.temp + "°F";
     humidity.textContent = "Humidity: " + resultObj.current.humidity + "%";
@@ -190,34 +197,49 @@ function printForecastResults(resultObj) {
 
     for (var i = 1; i < 6; i++) {
         var dailyForecast = resultObj.daily[i];
+        console.log(dailyForecast);
         function printDailyForecast(){
             var forecastCard = document.createElement("div");
-            forecastCard.classList.add("card", "col-3");
+            forecastCard.classList.add("card", "col-2");
             var cardTitle = document.createElement("h5");
-
             var rawDate = moment.unix(dailyForecast.dt);
-
             var forecastDate = moment(rawDate).format("dddd [|] LL");
 
             cardTitle.textContent = forecastDate;
             forecastCard.appendChild(cardTitle);
+            
+            var cardUl = document.createElement("ul");
+            cardUl.classList.add("list-group", "list-group-flush");
+
+            forecastCard.appendChild(cardUl);
             cardContainerEl.appendChild(forecastCard);
+            
+            var cardLiIcon = document.createElement("li");
+            console.log(cardLiIcon);
+            cardLiIcon.classList.add("list-group-item");
+            cardUl.appendChild(cardLiIcon);
+            
+            var imageIcon = document.createElement("img");
+            var codeIcon = dailyForecast.weather[0].icon;
+            console.log(codeIcon);
+            imageIcon.src = "http://openweathermap.org/img/wn/" + codeIcon + "@2x.png";
+            cardLiIcon.appendChild(imageIcon);
+
+
+            var cardLiTemp = document.createElement("li");
+            console.log(cardLiTemp);
+            cardLiTemp.classList.add("list-group-item");
+            cardUl.appendChild(cardLiTemp);
+            cardLiTemp.textContent = "Temperature: " + dailyForecast.temp.day + "°F";
+
+            var cardLiHumid = document.createElement("li");
+            console.log(cardLiHumid);
+            cardLiHumid.classList.add("list-group-item");
+            cardUl.appendChild(cardLiHumid);
+            cardLiHumid.textContent = "Humidity: " + dailyForecast.humidity + "%";
+       
         };
         printDailyForecast()
     }
 
-//     var cityList = document.querySelector("#result-log");
-//   var resultBtn = document.createElement("button");
-   
-//   resultBtn.classList.add("btn", "btn-success", "btn-lg", "btn-block");
-//   resultBtn.value = resultObj.name;
-//   resultBtn.textContent = resultObj.name + " - " + resultObj.state;
-//   cityList.appendChild(resultBtn);
-  
-//   resultBtn.setAttribute("type", "button");
-//   resultBtn.setAttribute("lat", resultObj.lat);
-//   resultBtn.setAttribute("lon", resultObj.lon);
-
-
-
-  }
+}
