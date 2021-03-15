@@ -35,32 +35,38 @@
               </form>
 
               <div id="result-log" class="row">
-                 
-                  <button type="button" class="btn btn-secondary btn-lg btn-block">City Name Here</button>
+                        
                   <button type="button" class="btn btn-secondary btn-lg btn-block">City Name Here</button>
                                   
               </div>
                 
             </article>
-                
+
             <article class="col-9">
 
-              <div class="col-9">
-                  <h2>City Name and Date and Icon</h2>
+              <div class="col-9 active-city-title">
+                  <div class="row">
+                    <div id="active-city" class="col-3">
+                    </div>
+                    <div id="todays-date" class="col-2">
+                    </div>
+                    <div id="active-city-icon" class="col-1">
+                    </div>
+                  </div>
                   <ul>
-                  <li>Temperature</li>
-                  <li>Humidity</li>
-                  <li>Wind Speed</li>
-                  <li>UV Index</li>    
+                  <li id="temp"></li>
+                  <li id="humidity"></li>
+                  <li id="wind-speed"></li>
+                  <li id="uv-index"></li>    
                   </ul>
               </div>
               
               <h3 class="col-9">5-Day Forecast:</h3>
 
               <div class="col-9">
-                <div class="row">
+                <div id="card-container" class="row">
                     
-                    <div class="card col-2">
+                    <div class="card-a col-2">
                         <h5 class="card-title">Date comes here</h5>
                         <ul class="list-group list-group-flush">
                         <li class="list-group-item">ICON</li>
@@ -69,15 +75,7 @@
                         </ul>
                     </div>
 
-                    <div class="card col-2">
-                        <h5 class="card-title">Date comes here</h5>
-                        <ul class="list-group list-group-flush">
-                        <li class="list-group-item">ICON</li>
-                        <li class="list-group-item">Temp:</li>
-                        <li class="list-group-item">Humidity:</li>
-                        </ul>
-                    </div>
-                
+                                    
                 </div>
               </div> 
             </article>
