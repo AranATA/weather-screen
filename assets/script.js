@@ -7,9 +7,6 @@ var searchInputEl = document.querySelector("#search-input");
 var activeCityNameEl = document.querySelector("#active-city");
 var activeCityIconEl = document.querySelector("#active-city-icon");
 var cardContainerEl = document.querySelector("#card-container");
-// var cardArray = document.getElementsByClassName("card");
-// console.log(cardArray);
-// var x .splice(5, 1)?????;
 
             // GETTING DATA FROM LOCAL STORAGE
 
@@ -23,7 +20,7 @@ function getStoredCities(){
       var cityList = document.querySelector("#result-log");
       var storedBtn = document.createElement("button");
       
-      storedBtn.classList.add("btn", "btn-secondary", "btn-lg", "btn-block");
+      storedBtn.classList.add("btn", "city-buttons", "btn-lg", "btn-block");
       storedBtn.textContent = storedCity.name + " - " + storedCity.state;
       cityList.appendChild(storedBtn);
 
@@ -95,8 +92,7 @@ function searchGeocode(cityName) {
         if (!geocodeResult.length) {
             alert("No results found!");
         } else {
-            // resultContentEl.textContent = '';
-            for (var i = 0; i < geocodeResult.length; i++) {
+              for (var i = 0; i < geocodeResult.length; i++) {
               printCityNameResults(geocodeResult[i]);
             }
         }
@@ -176,7 +172,7 @@ function searchOneCall(lat, lon) {
 function printForecastResults(resultObj) {
     console.log(resultObj);
 
-    // resultBtn.classList.add("btn", "btn-success", "btn-lg", "btn-block");
+    var heading = document.getElementById("subtitle");
     var temp = document.getElementById("temp");
     var humidity = document.getElementById("humidity");
     var windSpeed = document.getElementById("wind-speed");
@@ -189,11 +185,23 @@ function printForecastResults(resultObj) {
     imageIconCurrent.src = "http://openweathermap.org/img/wn/" + codeIconCurrent + "@2x.png";
     iconCurrent.appendChild(imageIconCurrent);
 
-    temp.textContent = "Temperature: " + resultObj.current.temp + "°F";
-    humidity.textContent = "Humidity: " + resultObj.current.humidity + "%";
-    windSpeed.textContent = "Wind speed: " + resultObj.current.wind_speed + "miles/hour";
+    heading.textContent = "5-day Forecast:";
+    temp.textContent = "Temperature: " + resultObj.current.temp + " °F";
+    humidity.textContent = "Humidity: " + resultObj.current.humidity + " %";
+    windSpeed.textContent = "Wind speed: " + resultObj.current.wind_speed + " miles/hour";
     uvIndex.textContent = "UV Index: " + resultObj.current.uvi;
     
+    function uvLevelColor(){
+        var uviLevel = resultObj.current.uvi;
+        uvIndex.classList.remove("green", "yellow", "orange", "red") 
+        if (uviLevel<=2) {uvIndex.classList.add("green")
+        } else if (uviLevel>2&&uviLevel<=5) {uvIndex.classList.add("yellow")
+        } else if (uviLevel>5&&uviLevel<=7) {uvIndex.classList.add("orange")
+        } else if (uviLevel>7&&uviLevel<=10) {uvIndex.classList.add("red")
+        };
+    }      
+    uvLevelColor();
+
 
     for (var i = 1; i < 6; i++) {
         var dailyForecast = resultObj.daily[i];
@@ -203,8 +211,9 @@ function printForecastResults(resultObj) {
             forecastCard.classList.add("card", "col-2");
             var cardTitle = document.createElement("h5");
             var rawDate = moment.unix(dailyForecast.dt);
-            var forecastDate = moment(rawDate).format("dddd [|] LL");
-
+            var forecastDate = moment(rawDate).format("ddd[ - ]MMM D");
+            // moment().format("dddd [|] LL");
+            
             cardTitle.textContent = forecastDate;
             forecastCard.appendChild(cardTitle);
             
@@ -216,7 +225,7 @@ function printForecastResults(resultObj) {
             
             var cardLiIcon = document.createElement("li");
             console.log(cardLiIcon);
-            cardLiIcon.classList.add("list-group-item");
+            cardLiIcon.classList.add("list-group-item", "icon-img");
             cardUl.appendChild(cardLiIcon);
             
             var imageIcon = document.createElement("img");
