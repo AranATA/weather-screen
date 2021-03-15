@@ -69,10 +69,10 @@ searchFormEl.addEventListener('submit', formSubmitHandler);
 // "http://api.openweathermap.org/geo/1.0/direct?q=chapel+hill&limit=3&appid=26361e188cd235438e3f1a2b81fff3d0"
 
 function searchGeocode(cityName) {
-    var geocodeUrl = "http://api.openweathermap.org/geo/1.0/direct?&appid=26361e188cd235438e3f1a2b81fff3d0";
+    var geocodeUrl = "https://api.openweathermap.org/geo/1.0/direct?&appid=26361e188cd235438e3f1a2b81fff3d0";
   
     if (cityName) {
-      geocodeUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + cityName + "&limit=2&appid=26361e188cd235438e3f1a2b81fff3d0";
+      geocodeUrl = "https://api.openweathermap.org/geo/1.0/direct?q=" + cityName + "&limit=2&appid=26361e188cd235438e3f1a2b81fff3d0";
     }
     
     console.log(geocodeUrl);
@@ -144,10 +144,10 @@ function printCityNameResults(resultObj) {
 function searchOneCall(lat, lon) {
     console.log(lat);
     console.log(lon);
-    var oneCallUrl = "http://api.openweathermap.org/data/2.5/onecall?&appid=26361e188cd235438e3f1a2b81fff3d0";
+    var oneCallUrl = "https://api.openweathermap.org/data/2.5/onecall?&appid=26361e188cd235438e3f1a2b81fff3d0";
   
     if (lat && lon) {
-      oneCallUrl = "http://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&exclude=minutely,hourly&appid=26361e188cd235438e3f1a2b81fff3d0";
+      oneCallUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&exclude=minutely,hourly&appid=26361e188cd235438e3f1a2b81fff3d0";
     }
     console.log(oneCallUrl);
     
@@ -182,7 +182,7 @@ function printForecastResults(resultObj) {
     var imageIconCurrent = document.createElement("img");
     var codeIconCurrent = resultObj.current.weather[0].icon;
     console.log(codeIconCurrent);
-    imageIconCurrent.src = "http://openweathermap.org/img/wn/" + codeIconCurrent + "@2x.png";
+    imageIconCurrent.src = "https://openweathermap.org/img/wn/" + codeIconCurrent + "@2x.png";
     iconCurrent.appendChild(imageIconCurrent);
 
     heading.textContent = "5-day Forecast:";
@@ -231,7 +231,7 @@ function printForecastResults(resultObj) {
             var imageIcon = document.createElement("img");
             var codeIcon = dailyForecast.weather[0].icon;
             console.log(codeIcon);
-            imageIcon.src = "http://openweathermap.org/img/wn/" + codeIcon + "@2x.png";
+            imageIcon.src = "https://openweathermap.org/img/wn/" + codeIcon + "@2x.png";
             cardLiIcon.appendChild(imageIcon);
 
 
