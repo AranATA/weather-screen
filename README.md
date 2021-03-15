@@ -58,7 +58,7 @@ A short video that shows how the UI works.<br>
 These notes and links are listing some valuable references among others that I used doing this project:<br>
 <br>
 
-[https://jquery.com/](https://jquery.com/)
+[https://openweathermap.org/api](https://openweathermap.org/api)
 
 [https://getbootstrap.com/](https://getbootstrap.com/)
 
