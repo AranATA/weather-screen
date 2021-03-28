@@ -5,7 +5,7 @@
     --buttonborder: rgba(170, 50, 220, .8);
     --lightbutton: rgb(192, 105, 148);
     --lightcardbg: rgb(102, 184, 173);
-    --darkb: rgb(167, 52, 90);
+    --darkb: rgb(211, 66, 114);
     font-size: 62.5%;
 }
 
@@ -56,8 +56,8 @@ main{
 
 section {
   height: 60rem;
-  border: 0.35rem solid rgb(212, 73, 119);
-  border-radius: 5rem;
+  border: 0.35rem solid rgb(245, 179, 201);
+  border-radius: 6.5rem;
   padding: 5rem;
   margin-top: 5rem;
   background-color: var(--darkb);
@@ -116,18 +116,21 @@ label {
   text-align: center;
   justify-content: center;
   align-items: center;
-}
+  }
 
 .list-group-item {
+  
   font-family: "Nunito", sans-serif;
   font-weight: 300;
   font-size: 1.25rem;
 
 }
 .card{
+  /* animation: backOutDown;
+    animation-duration: 4s; */
   margin:1.5rem;
   padding: 1rem;
-  border: 0.35rem solid rgb(212, 73, 119);
+  border: 0.35rem solid rgb(245, 179, 201);
   text-align: center;
   background-color: var(--lightbutton);
 }
@@ -151,4 +154,25 @@ label {
 
 .fas {
   color : rgb(250, 246, 199);
+}
+
+.reset-button {
+  background-color:  rgb(16, 109, 248);
+  border: 0.2rem solid white;
+  border-radius: 50%;
+  color: white;
+  padding: 0.02rem 1.1rem 0.2rem 1.1rem;
+  text-align: center;
+  text-decoration: none;
+  font-size: 2rem;
+  margin-top: 2rem;
+  font-family: "Nunito", sans-serif;
+}
+
+.hidden {
+  visibility:hidden;
+}
+
+.visible {
+  visibility:visible;
 }
